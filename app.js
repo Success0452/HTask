@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const start = () => {
+const start = (req, res) => {
     const { operation, x, y } = req.body;
     const result = 0;
     if(operation === "+"){
@@ -28,7 +28,7 @@ const start = () => {
 }
 
 app.post('/', (req, res) => {
-   start();
+   start(req, res);
 })
 
 app.listen(3000);
