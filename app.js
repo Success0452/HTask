@@ -1,14 +1,17 @@
 const express = require('express')
 const app = express()
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
+
 const start = (req, res) => {
     const { operation, x, y } = req.body;
-    const result = 0;
+    let result = 0;
     if(operation === "+"){
         result = x + y;
     }
     if(operation === "-"){
-        result = x - y;
+        result = Number(x) - Number(y);
     }
     if(operation === "/"){
         result = x/y
